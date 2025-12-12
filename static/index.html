@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinIO Metrics Viewer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>📊 MinIO Metrics Viewer</h1>
+
+    <div class="controls" id="file-buttons">
+        <!-- Buttons loaded dynamically -->
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value" id="total-dirs">-</div>
+            <div class="stat-label">Total Directories</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="total-size">-</div>
+            <div class="stat-label">Total Size</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="over-quota">-</div>
+            <div class="stat-label">Over Quota</div>
+        </div>
+        <div class="stat-card">
+            <label class="stat-label">Quota (GB)</label>
+            <input type="number" class="quota-input" id="quota-input" value="250" onchange="applyQuota()">
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <input type="text" class="search-box" id="search-box" placeholder="Search paths...">
+    </div>
+
+    <div class="file-info" id="file-info">Loading files...</div>
+
+    <div class="table-container">
+        <table id="metrics-table">
+            <thead>
+                <tr>
+                    <th data-column="0">Path</th>
+                    <th data-column="1">Size</th>
+                    <th data-column="2">Size (GB)</th>
+                    <th data-column="3">Size (MB)</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
