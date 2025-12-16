@@ -94,4 +94,4 @@ if __name__ == '__main__':
     ROOT_PATH = os.environ.get("ROOT_PATH", "/minio-monitor")
     root_app = FastAPI()
     root_app.mount(ROOT_PATH, app)
-    uvicorn.run(root_app, host='0.0.0.0', port=8001)
+    uvicorn.run(root_app, host='0.0.0.0', port=8000)
