@@ -91,4 +91,7 @@ async def list_files(limit: int = Query(5, ge=1, le=20)):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    ROOT_PATH = os.environ.get("ROOT_PATH", "/minio-monitor")
+    root_app = FastAPI()
+    root_app.mount(ROOT_PATH, app)
+    uvicorn.run(root_app, host='0.0.0.0', port=8001)
