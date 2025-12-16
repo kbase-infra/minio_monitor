@@ -18,7 +18,7 @@ const overQuotaEl = document.getElementById('over-quota');
 // Initialize
 async function init() {
     // Load file list
-    const response = await fetch('/api/files');
+    const response = await fetch('api/files');
     const data = await response.json();
     files = data.files;
 
@@ -55,7 +55,7 @@ async function loadFile(filename, btn) {
     document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
 
-    const response = await fetch(`/api/csv?file=${encodeURIComponent(filename)}`);
+    const response = await fetch(`api/csv?file=${encodeURIComponent(filename)}`);
     const data = await response.json();
     currentData = data.rows;
 
