@@ -76,7 +76,6 @@ async def index():
 async def get_csv(file: str = Query(..., description="CSV filename to load")):
     if not file:
         raise HTTPException(status_code=400, detail="No file specified")
-
     try:
         rows = read_csv_from_minio(file)
         return {"rows": rows}
