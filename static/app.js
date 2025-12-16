@@ -145,6 +145,5 @@ function applyQuota() {
     renderTable();
     updateStats();
 }
-
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', init);
