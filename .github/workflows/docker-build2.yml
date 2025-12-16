@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build Docker Image for Web
 
 on:
   workflow_call:
