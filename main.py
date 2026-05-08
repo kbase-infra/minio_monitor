@@ -13,7 +13,7 @@ from slack_sdk.errors import SlackApiError
 # Start timing
 start_time = time.time()
 
-required_config = ['MINIO_ROOT_USER', 'MINIO_ROOT_PASSWORD', "MINIO_ENDPOINT_URL", "SLACK_BOT_TOKEN"]
+required_config = ['MINIO_ROOT_USER', 'MINIO_ROOT_PASSWORD', "MINIO_ENDPOINT_URL", "SLACK_BOT_TOKEN", "QUOTA_GB"]
 
 for var in required_config:
     if var not in os.environ:
@@ -143,7 +143,7 @@ s3.put_object(
 print(f"CSV uploaded to: {bucket_name}/{minio_path}")
 
 # Check for directories over quota
-QUOTA_GB = 250
+QUOTA_GB = os.environ["QUOTA_GB"]
 over_quota = []
 
 for path in path_data:
