@@ -143,7 +143,7 @@ s3.put_object(
 print(f"CSV uploaded to: {bucket_name}/{minio_path}")
 
 # Check for directories over quota
-QUOTA_GB = os.environ["QUOTA_GB"]
+QUOTA_GB = int(os.environ["QUOTA_GB"])
 over_quota = []
 
 for path in path_data:
